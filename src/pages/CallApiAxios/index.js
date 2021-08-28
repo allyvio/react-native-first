@@ -1,9 +1,10 @@
 import React from 'react'
 import { View, Text, StyleSheet, Button, Image } from 'react-native'
 import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 
-const CallApiVanilla = () => {
+const CallApiAxios = () => {
     const [dataUser, setDataUser] = useState({
         avatar: '',
         email: '',
@@ -36,30 +37,38 @@ const CallApiVanilla = () => {
         //     .then(json => console.log("post response: ", json))
     }, [])
     const getData = () => {
-        fetch('https://reqres.in/api/users/2')
-            .then(response => response.json())
-            .then(json => {
-                console.log(json)
-                setDataUser(json.data)
+        // fetch('https://reqres.in/api/users/2')
+        //     .then(response => response.json())
+        //     .then(json => {
+        //         console.log(json)
+        //         setDataUser(json.data)
+        //     })
+        axios.get('https://reqres.in/api/users/2')
+            .then(result => {
+                setDataUser(result.data.data)
             })
+            .catch(err => console.log(err))
     }
     const postData = () => {
         const payloads = {
             name: "morpheus",
             job: "leader"
         }
-        fetch('https://reqres.in/api/users', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(payloads)
-        })
-            .then(response => response.json())
-            .then(json => {
-                console.log("post response: ", json)
-                setDataJob(json)
-            })
+        // fetch('https://reqres.in/api/users', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify(payloads)
+        // })
+        //     .then(response => response.json())
+        //     .then(json => {
+        //         console.log("post response: ", json)
+        //         setDataJob(json)
+        //     })
+        axios.post('https://reqres.in/api/users', payloads)
+            .then(result => setDataJob(result.data))
+            .catch(err => console.log(err))
     }
     const Jobs = (props) => {
         return (
@@ -71,7 +80,7 @@ const CallApiVanilla = () => {
     }
     return (
         <View style={style.container}>
-            <Text style={style.textTitle}>materi api with vanilla js</Text>
+            <Text style={style.textTitle}>materi api with axios</Text>
             <Button title="Get Data" onPress={getData} />
             <Text>Respon Get data</Text>
             {dataUser.avatar.length > 0 && (
@@ -97,4 +106,4 @@ const style = StyleSheet.create({
     avatar: { width: 100, height: 100, borderRadius: 100 / 2 }
 })
 
-export default CallApiVanilla
+export default CallApiAxios
