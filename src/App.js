@@ -6,6 +6,7 @@ import State from './pages/State'
 import DetailsScreen from './pages/DetailsScreen'
 import CallApiVanilla from './pages/CallApiVanilla'
 import CallApiAxios from './pages/CallApiAxios'
+import MateriCrud from './pages/MateriCrud'
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -15,7 +16,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const App = () => {
   return (
-    < CallApiAxios />
+    < MateriCrud />
   )
   //   return <NavigationContainer>
   //     <Stack.Navigator>
