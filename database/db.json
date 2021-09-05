@@ -1,21 +1,14 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "nama": "allyvio",
-      "email": "allyviomahardhika@gmail.com",
-      "posisi": "programmer react native"
-    },
-    {
-      "nama": "vio",
+  "users": [{
+      "nama": "allyviooo",
       "email": "allyvio@gmail.com",
-      "posisi": "programmer",
+      "posisi": "programmerr",
       "id": 2
     },
     {
-      "nama": "dika",
-      "email": "dika@gmail.com",
-      "posisi": "fullstack dev",
+      "nama": "dumyy",
+      "email": "m_dummy@example.com",
+      "posisi": "programmerrr",
       "id": 3
     }
   ]
