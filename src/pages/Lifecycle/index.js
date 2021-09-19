@@ -1,5 +1,6 @@
 import React, { Component, useEffect, useState } from 'react'
 import { View, Text } from 'react-native'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 // class ClassLifecycle extends Component {
 //     constructor(props) {
@@ -35,8 +36,14 @@ import { View, Text } from 'react-native'
 // }
 const Lifecycle = () => {
     const [text, setText] = useState('Lifecycle')
+    const [data, setData] = useState('')
     useEffect(() => {
-        console.log('====> : DidMount');
+        // AsyncStorage.getItem('storage_key')
+        //     .then((data) => {
+        //         setData(data)
+        //     })
+        // console.log(data);
+        console.log('====> did mount');
         setTimeout(() => {
             setText('Lifecycle nya di ubah')
         }, 2000)

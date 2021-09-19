@@ -9,9 +9,8 @@ const AsyncStorage_ = () => {
         if (inputText) {
             AsyncStorage.setItem('storage_key', inputText)
             setInputText('')
-            alert('Data disimpan')
         } else {
-            alert('mohon isi data')
+            alert('please fill the form')
         }
     }
     const getData = () => {
